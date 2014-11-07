@@ -1,8 +1,17 @@
-%Normalizes the features of the given matrix.
+% -- [X_norm, mu, sigma] = featureNormalization(X)
 %
-% featureNormalization(X)
-% X      matrix (not the design matrix), each row corresponds to an example
+% Normalizes the features of the given matrix.
+%
+%  X     matrix (not the design matrix), each row corresponds to an example
 %        each column corresponds to a feature
+%
+% RETURNS
+%
+%  X_norm  Matrix of normalized features.
+%
+%  mu      Vector of the mean of the elements of each columns.
+%
+%  sigma   Vector of the standard deviation of the elements of each column.
 function [X_norm, mu, sigma] = featureNormalization(X)
 	mu = mean(X);
 	sigma = std(X);
