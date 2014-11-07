@@ -1,10 +1,10 @@
 This directory contains functions useful for doing machine learning in Octave.
 
-General
+*General*
 
-featureNormalization.m: Normalizes the features of a matrix.
+`featureNormalization.m`: Normalizes the features of a matrix.
 
-Linear Regression
+*Linear Regression*
 
-lrComputeCost.m: Cost function for linear regression without regularization.
+`lrComputeCost.m`: Cost function for linear regression without regularization.
 
