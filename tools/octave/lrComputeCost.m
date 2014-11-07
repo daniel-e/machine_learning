@@ -1,4 +1,4 @@
-% -- [J] = computeCost(X, y, theta)
+% -- [J] = lrComputeCost(X, y, theta)
 %
 % Computes the cost for linear regression using the least squares method.
 %
@@ -14,7 +14,7 @@
 % RETURNS
 %
 %  J     The value cost.
-function J = computeCost(X, y, theta)
+function J = lrComputeCost(X, y, theta)
 	% compute the 
 	c = X * theta - y;
 	J = c' * c / (2 * length(y));
@@ -24,4 +24,4 @@ end
 %! X = [1, .81, .53, .01, .03; 1, .09, .10, .19, .12; 1, .21, .12, .38, .39];
 %! theta = [.3, .5, .2, .9, .7]';
 %! y = [1, 0, 1]';
-%! assert (computeCost(X, y, theta), .068603, .000001)
+%! assert (lrComputeCost(X, y, theta), .068603, .000001)
