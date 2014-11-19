@@ -3,6 +3,7 @@ This directory contains functions useful for doing machine learning in Octave.
 *General*
 
 * `featureNormalization.m`: Normalizes the features of a matrix.
+* `sigmoid.m`: Computes the sigmoid function.
 
 *Linear Regression*
 
