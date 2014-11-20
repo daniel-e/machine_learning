@@ -1,4 +1,4 @@
-# Machine learning in Octave
+# Machine learning with Octave
 
 This directory contains functions useful for doing machine learning in Octave.
 
@@ -20,7 +20,9 @@ This directory contains functions useful for doing machine learning in Octave.
 * `lrNormalEquation.m`: Computes the exact solution to a linear regression problem without regularization.
 * `lrAddFeatures.m`: Computes additional features.
 
-## Example for linear regression without regularization
+## Examples
+
+### Example for linear regression without regularization
 
 ```
 % create a data set along the line 2x+3 with random noise
@@ -47,7 +49,7 @@ plot(x, y, "x", x, p, "r", "linewidth", 2);
 lrComputeCost(X, y, theta)
 ```
 
-## Example for linear regression with additional features and without regularization
+### Example for linear regression with additional features and without regularization
 
 To approximate complex non-linear functions with linear regression one method is to compute new features from existing features. Here's an example.
 
