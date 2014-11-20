@@ -6,17 +6,23 @@ This directory contains functions useful for doing machine learning in Octave.
 
 *General*
 
-* `featureNormalization.m`: Normalizes the features of a matrix.
 * `sigmoid.m`: Computes the sigmoid function.
+
+*Features*
+
+* `normalizeFeatures.m`: Normalizes the features of a matrix.
+* `combineFeatures.m`: Computes new features by combining existing features.
+* `boostFeatures.m`: Computes new features by raising existing features to dfferent powers.
 
 *Linear Regression*
 
 * `lrComputeCost.m`: Cost function for linear regression without regularization.
-* `lrNormalEquationm.m`: Computes the exact solution to a linear regression problem.
+* `lrNormalEquation.m`: Computes the exact solution to a linear regression problem without regularization.
+* `lrAddFeatures.m`: Computes additional features.
 
-## Example for linear regression
+## Example for linear regression without regularization
 
-```octave
+```
 % create a data set along the line 2x+3 with random noise
 x = (-10:0.5:10)';
 y = 2*x+3 + 6*rand(length(x), 1)-3;
@@ -29,11 +35,40 @@ X = [ones(length(x), 1), x];
 theta = lrNormalEquation(X, y);
 
 % predict one example at x_1 = 2
-% value should be around 2*2+3 = 7
+% the value should be around 2*2+3 = 7
 theta' * [1; 2]
 
 % predict the value of all examples in X at once
 % and plot it
 p = X * theta;
 plot(x, y, "x", x, p, "r", "linewidth", 2);
+
+% the cost of the solution can be computed as follows:
+lrComputeCost(X, y, theta)
 ```
+
+## Example for linear regression with additional features and without regularization
+
+To approximate complex non-linear functions with linear regression one method is to compute new features from existing features. Here's an example.
+
+```
+% create a data set along the curve sin(x)+0.5*x
+x = (-10:0.5:10)';
+y = sin(x) + x * 0.5 + 2 * rand(length(x), 1) - 1;
+
+% from the existing features create higher dimensional features
+xn = boostFeatures(x, 4);
+k = combineFeatures(xn, 2, 4);
+
+% create the design matrix
+X = [ones(size(k, 1), 1), k];
+
+% compute the optimal solution for the optimization problem
+% using the normal equation
+theta = lrNormalEquation(X, y);
+
+% predict the value of all examples in X at once and plot it
+p = X * theta;
+plot(x, y, "x", x, sin(x) + 0.5*x, "b", x, p, "r", "linewidth", 2);
+```
+
