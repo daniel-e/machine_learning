@@ -23,7 +23,9 @@ This directory contains functions useful for doing machine learning in Octave.
 
 ## Examples
 
-### Linear regression without regularization
+### Linear regression
+
+#### Normal equation without regularization
 
 ```
 % create a data set along the line 2x+3 with random noise
@@ -50,7 +52,7 @@ plot(x, y, "x", x, p, "r", "linewidth", 2);
 lrComputeCost(X, y, theta)
 ```
 
-### Linear regression with additional features and without regularization
+#### Increase number of features
 
 To approximate complex non-linear functions with linear regression one method is to compute new features from existing features. Here's an example.
 
@@ -75,7 +77,7 @@ p = X * theta;
 plot(x, y, "x", x, sin(x) + 0.5*x, "b", x, p, "r", "linewidth", 2);
 ```
 
-### Linear regression with additional features, without regularization, with Gradient descent
+### Gradient descent vs normal equation
 
 To approximate complex non-linear functions with linear regression one method is to compute new features from existing features. Here's an example.
 
