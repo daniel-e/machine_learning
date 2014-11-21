@@ -13,16 +13,17 @@ This directory contains functions useful for doing machine learning in Octave.
 * `normalizeFeatures.m`: Normalizes the features of a matrix.
 * `combineFeatures.m`: Computes new features by combining existing features.
 * `boostFeatures.m`: Computes new features by raising existing features to dfferent powers.
+* `tfidf.m`: Computes the term frequency-inverse document frequency of a document-term matrix.
 
 *Linear Regression*
 
 * `lrComputeCost.m`: Cost function for linear regression without regularization.
 * `lrNormalEquation.m`: Computes the exact solution to a linear regression problem without regularization.
-* `lrAddFeatures.m`: Computes additional features.
+* `lrGradientDescent.m`: Minimizes a linear regression problem with Gradient descent.
 
 ## Examples
 
-### Example for linear regression without regularization
+### Linear regression without regularization
 
 ```
 % create a data set along the line 2x+3 with random noise
@@ -49,7 +50,7 @@ plot(x, y, "x", x, p, "r", "linewidth", 2);
 lrComputeCost(X, y, theta)
 ```
 
-### Example for linear regression with additional features and without regularization
+### Linear regression with additional features and without regularization
 
 To approximate complex non-linear functions with linear regression one method is to compute new features from existing features. Here's an example.
 
@@ -68,6 +69,33 @@ X = [ones(size(k, 1), 1), k];
 % compute the optimal solution for the optimization problem
 % using the normal equation
 theta = lrNormalEquation(X, y);
+
+% predict the value of all examples in X at once and plot it
+p = X * theta;
+plot(x, y, "x", x, sin(x) + 0.5*x, "b", x, p, "r", "linewidth", 2);
+```
+
+### Linear regression with additional features, without regularization, with Gradient descent
+
+To approximate complex non-linear functions with linear regression one method is to compute new features from existing features. Here's an example.
+
+```
+% create a data set along the curve sin(x)+0.5*x
+x = (-10:0.5:10)';
+y = sin(x) + x * 0.5 + 2 * rand(length(x), 1) - 1;
+
+% from the existing features create higher dimensional features
+xn = boostFeatures(x, 4);
+k = combineFeatures(xn, 2, 4);
+k = xn;
+
+% create the design matrix
+X = [ones(size(k, 1), 1), k];
+
+% compute the optimal solution for the optimization problem
+% using the normal equation
+theta = lrGradientDescent(X, y, 0.1, 100);
+%theta = lrNormalEquation(X, y);
 
 % predict the value of all examples in X at once and plot it
 p = X * theta;
