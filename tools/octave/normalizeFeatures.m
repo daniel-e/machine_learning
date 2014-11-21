@@ -13,8 +13,11 @@
 %
 %  sigma   Vector of the standard deviation of the elements of each column.
 function [X_norm, mu, sigma] = normalizeFeatures(X)
+	% TODO handle the case when sigma is zero
+	epsilon = 1e-6;
 	mu = mean(X);
 	sigma = std(X);
+	sigma(abs(sigma) <= epsilon) = 1;
 	X_norm = bsxfun(@rdivide, bsxfun(@minus, X, mu), sigma);
 end
 
