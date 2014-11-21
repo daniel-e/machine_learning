@@ -110,4 +110,5 @@ legend('points', 'curve without noise',
 ```
 
 This example creates the following plot:
+
 ![plot of gradient descent vs normal equation](https://github.com/daniel-e/machine_learning/blob/plots/tools/octave/lr_gradient_descent_vs_normal_equation.png)
