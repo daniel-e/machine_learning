@@ -52,6 +52,8 @@ plot(x, y, 'x', x, p, 'r', 'linewidth', 2);
 lrComputeCost(X, y, theta)
 ```
 
+![plot of linear regression using normal equation](https://github.com/daniel-e/machine_learning/blob/plots/tools/octave/linear_regresssion_normal_equation.png)
+
 #### Increase number of features
 
 To approximate complex non-linear functions with linear regression one method is to compute new features from existing features. Here's an example.
@@ -76,6 +78,8 @@ theta = lrNormalEquation(X, y);
 p = X * theta;
 plot(x, y, 'x', x, sin(x) + 0.5*x, 'b', x, p, 'r', 'linewidth', 2);
 ```
+
+![plot of linear regression with increased feature dimension](https://github.com/daniel-e/machine_learning/blob/plots/tools/octave/linear_regresssion_increase_features.png)
 
 #### Gradient descent vs normal equation
 
