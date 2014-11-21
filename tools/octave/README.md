@@ -27,7 +27,7 @@ This directory contains functions useful for doing machine learning in Octave.
 
 #### Normal equation without regularization
 
-```
+```matlab
 % create a data set along the line 2x+3 with random noise
 x = (-10:0.5:10)';
 y = 2*x+3 + 6*rand(length(x), 1)-3;
@@ -46,7 +46,7 @@ theta' * [1; 2]
 % predict the value of all examples in X at once
 % and plot it
 p = X * theta;
-plot(x, y, "x", x, p, "r", "linewidth", 2);
+plot(x, y, 'x', x, p, 'r', 'linewidth', 2);
 
 % the cost of the solution can be computed as follows:
 lrComputeCost(X, y, theta)
@@ -56,7 +56,7 @@ lrComputeCost(X, y, theta)
 
 To approximate complex non-linear functions with linear regression one method is to compute new features from existing features. Here's an example.
 
-```
+```matlab
 % create a data set along the curve sin(x)+0.5*x
 x = (-10:0.5:10)';
 y = sin(x) + x * 0.5 + 2 * rand(length(x), 1) - 1;
@@ -74,7 +74,7 @@ theta = lrNormalEquation(X, y);
 
 % predict the value of all examples in X at once and plot it
 p = X * theta;
-plot(x, y, "x", x, sin(x) + 0.5*x, "b", x, p, "r", "linewidth", 2);
+plot(x, y, 'x', x, sin(x) + 0.5*x, 'b', x, p, 'r', 'linewidth', 2);
 ```
 
 #### Gradient descent vs normal equation
@@ -105,6 +105,6 @@ theta2 = lrNormalEquation(N, y);
 p1 = N * theta1;
 p2 = N * theta2;
 plot(x, y, 'x', x, sin(x) + 0.5*x, 'b', x, p1, 'r', 'linewidth', 2, x, p2, 'g', 'linewidth', 2);
-legend("points", "optimal curve", "gradient descent", "normal equation", "location", "southeast");
+legend('points', 'optimal curve', 'gradient descent', 'normal equation', 'location', 'southeast');
 ```
 
