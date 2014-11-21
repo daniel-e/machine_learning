@@ -87,18 +87,22 @@ y = sin(x) + x * 0.5 + 2 * rand(length(x), 1) - 1;
 % from the existing features create higher dimensional features
 xn = boostFeatures(x, 4);
 k = combineFeatures(xn, 2, 4);
-k = xn;
 
 % create the design matrix
 X = [ones(size(k, 1), 1), k];
 
-% compute the optimal solution for the optimization problem
-% using the normal equation
-theta = lrGradientDescent(X, y, 0.1, 100);
-%theta = lrNormalEquation(X, y);
+% compute the optimal solution for the optimization problem using the normal
+% equation
+% we have to normalize the features first when using gradient descent because
+% they differ due to the boost and combine step very much
+[N, mu, sigma] = normalizeFeatures(X);
+theta1 = lrGradientDescent(N, y, 0.1, 1000);
+theta2 = lrNormalEquation(N, y);
 
 % predict the value of all examples in X at once and plot it
-p = X * theta;
-plot(x, y, "x", x, sin(x) + 0.5*x, "b", x, p, "r", "linewidth", 2);
+p1 = N * theta1;
+p2 = N * theta2;
+plot(x, y, "x", x, sin(x) + 0.5*x, "b", x, p1, "r", "linewidth", 2, x, p2, "g", "linewidth", 2);
+legend("points", "optimal curve", "gradient descent", "normal equation", "location", "southeast");
 ```
 

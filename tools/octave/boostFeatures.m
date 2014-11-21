@@ -11,7 +11,7 @@
 % RETURNS
 %
 %  F     Matrix of the n * d new features.
-function X_new = boostFeatures(X, d)
+function F = boostFeatures(X, d)
 	n = size(X, 2);  % number of features / columns
 	m = size(X, 1);  % number of examples
 	F = zeros(m, n * d);
