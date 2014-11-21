@@ -104,7 +104,7 @@ theta2 = lrNormalEquation(N, y);
 % predict the value of all examples in X at once and plot it
 p1 = N * theta1;
 p2 = N * theta2;
-plot(x, y, "x", x, sin(x) + 0.5*x, "b", x, p1, "r", "linewidth", 2, x, p2, "g", "linewidth", 2);
+plot(x, y, 'x', x, sin(x) + 0.5*x, 'b', x, p1, 'r', 'linewidth', 2, x, p2, 'g', 'linewidth', 2);
 legend("points", "optimal curve", "gradient descent", "normal equation", "location", "southeast");
 ```
 
