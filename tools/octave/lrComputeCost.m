@@ -14,7 +14,7 @@
 % RETURNS
 %
 %  J     The value cost.
-function J = lrComputeCost(X, y, theta)
+function [J] = lrComputeCost(X, y, theta)
 	% compute the 
 	c = X * theta - y;
 	J = c' * c / (2 * length(y));
