@@ -87,8 +87,7 @@ x = (-10:0.5:10)';
 y = sin(x) + x * 0.5 + 2 * rand(length(x), 1) - 1;
 
 % from the existing features create higher dimensional features
-xn = boostFeatures(x, 4);
-k = combineFeatures(xn, 2, 4);
+k = combineFeatures(boostFeatures(x, 5), 2, 5);
 
 % create the design matrix
 X = [ones(size(k, 1), 1), k];
@@ -104,7 +103,11 @@ theta2 = lrNormalEquation(N, y);
 % predict the value of all examples in X at once and plot it
 p1 = N * theta1;
 p2 = N * theta2;
-plot(x, y, 'x', x, sin(x) + 0.5*x, 'b', x, p1, 'r', 'linewidth', 2, x, p2, 'g', 'linewidth', 2);
-legend('points', 'optimal curve', 'gradient descent', 'normal equation', 'location', 'southeast');
+plot(x, y, 'x', x, sin(x) + 0.5*x, 'b', 
+	x, p1, 'r', 'linewidth', 2, x, p2, 'g', 'linewidth', 2);
+legend('points', 'curve without noise', 
+	'gradient descent', 'normal equation', 'location', 'southeast');
 ```
 
+This example creates the following plot:
+![plot of gradient descent vs normal equation](https://github.com/daniel-e/machine_learning/blob/plots/tools/octave/lr_gradient_descent_vs_normal_equation.png)
