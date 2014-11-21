@@ -77,11 +77,11 @@ p = X * theta;
 plot(x, y, "x", x, sin(x) + 0.5*x, "b", x, p, "r", "linewidth", 2);
 ```
 
-### Gradient descent vs normal equation
+#### Gradient descent vs normal equation
 
 To approximate complex non-linear functions with linear regression one method is to compute new features from existing features. Here's an example.
 
-```
+```matlab
 % create a data set along the curve sin(x)+0.5*x
 x = (-10:0.5:10)';
 y = sin(x) + x * 0.5 + 2 * rand(length(x), 1) - 1;
