@@ -121,13 +121,15 @@ This example creates the following plot:
 
 ![plot of gradient descent vs normal equation](https://github.com/daniel-e/machine_learning/blob/plots/tools/octave/lr_gradient_descent_vs_normal_equation.png)
 
-### Visizalization
+### Visualization
+
+The following Octave code creates a data set which contains 100 points where the first and second dimension are selected at random in the interval [0,1]. All points for which the first dimension is smaller than the second dimension are assigned the class label 1. All other points are assigned the class label 0.
 
 ```matlab
 % create a data set
 X = rand(100, 2);
 % create the class labels
-y = X(:,1) < X(:,2);
+y = X(:, 1) < X(:, 2);
 % visualize
 visualizeInstances(X, y);
 ```
