@@ -23,7 +23,7 @@ This directory contains functions useful for doing machine learning in Octave.
 
 *Visualization*
 
-* `visualizeInstances.`: Visualize 2-dimenstional instances belonging to at most two classes.
+* `visualizeInstances.m`: Visualize 2-dimenstional instances belonging to at most two classes.
 
 ## Examples
 
@@ -120,3 +120,18 @@ legend('points', 'curve without noise',
 This example creates the following plot:
 
 ![plot of gradient descent vs normal equation](https://github.com/daniel-e/machine_learning/blob/plots/tools/octave/lr_gradient_descent_vs_normal_equation.png)
+
+### Visizalization
+
+```matlab
+% create a data set
+X = rand(100, 2);
+% create the class labels
+y = X(:,1) < X(:,2);
+% visualize
+visualizeInstances(X, y);
+```
+
+The result is a plot like the following one:
+
+![plot of instances belonging to two classes](https://github.com/daniel-e/machine_learning/blob/plots/tools/octave/visualize_instances.png)

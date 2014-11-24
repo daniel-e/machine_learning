@@ -1,6 +1,6 @@
 % -- [] = visualizeInstances(X, y)
 %
-% Visualizes the instances of matrix X.
+% Visualizes the instances of matrix X belonging to at most two classes.
 %
 %  X     is the m x 2 dimensional matrix of m examples each with
 %        2 features.
