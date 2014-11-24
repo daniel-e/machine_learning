@@ -21,6 +21,10 @@ This directory contains functions useful for doing machine learning in Octave.
 * `lrNormalEquation.m`: Computes the exact solution to a linear regression problem without regularization.
 * `lrGradientDescent.m`: Minimizes a linear regression problem with Gradient descent.
 
+*Visualization*
+
+* `visualizeInstances.`: Visualize 2-dimenstional instances belonging to at most two classes.
+
 ## Examples
 
 ### Linear regression
