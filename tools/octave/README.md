@@ -228,3 +228,7 @@ axis([0 1 0 1]);
 plot([0 1], [-b / w(2), (-b - w(1)) / w(2)]);
 ```
 
+The following plot is generated:
+
+![plot for support vector machine](https://github.com/daniel-e/machine_learning/blob/plots/tools/octave/plot_svm.png)
+
