@@ -2,32 +2,40 @@
 
 This directory contains functions useful for doing machine learning in Octave.
 
+**Table of Contents**
+
+- Overview of functions
+- Examples
+  - Linear regression
+    - Normal equation without regularization
+
+
 ## Overview of functions
 
-*General*
+**General**
 
 * `sigmoid.m`: Computes the sigmoid function.
 
-*Features*
+**Features**
 
 * `normalizeFeatures.m`: Normalizes the features of a matrix.
 * `combineFeatures.m`: Computes new features by combining existing features.
 * `boostFeatures.m`: Computes new features by raising existing features to dfferent powers.
 * `tfidf.m`: Computes the term frequency-inverse document frequency of a document-term matrix.
 
-*Linear Regression*
+**Linear Regression**
 
 * `lrComputeCost.m`: Cost function for linear regression without regularization.
 * `lrNormalEquation.m`: Computes the exact solution to a linear regression problem without regularization.
 * `lrGradientDescent.m`: Minimizes a linear regression problem with Gradient descent.
 
-*Visualization*
+**Visualization**
 
 * `visualizeInstances.m`: Visualize 2-dimenstional instances belonging to at most two classes.
 
-*Support Vector Machines*
+**Support Vector Machines**
 
-To use a support vector machine as a classifier you have to install [LIBSVM](http://www.csie.ntu.edu.tw/~cjlin/libsvm/). 
+*To use a support vector machine as a classifier you have to install [LIBSVM](http://www.csie.ntu.edu.tw/~cjlin/libsvm/). *
 
 * `svmTrain.m`: Training of a SVM.
 * `svmPredict.m`: Predict instances with an SVM.
