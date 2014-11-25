@@ -4,11 +4,16 @@ This directory contains functions useful for doing machine learning in Octave.
 
 **Table of Contents**
 
-- Overview of functions
-- Examples
-  - Linear regression
-    - Normal equation without regularization
-
+- [Overview of functions](#overview-of-functions)
+- [Examples](#examples)
+  - [Linear regression](#linear-gregression)
+    - [Normal equation without regularization](#normal-equation-without-regularization)
+    - [Increase number of features](#increase-number-of-features)
+    - [Gradient descent vs normal equation](#gradient-descent-vs-normal-equation)
+    - [Visualization](#visualization)
+  - [SVM](#svm)
+    - [Installing LIBSVM](#intalling-libsvm)
+    - [Two-class SVM](#two-class-svm)
 
 ## Overview of functions
 
@@ -156,9 +161,9 @@ The result is a plot like the following one:
 
 ### SVM
 
-#### Installing SVM
+#### Installing LIBSVM
 
-To use support vector machines you have to install LIBSVM. LIBSVM provides an interface for MATLAB and Octave. For this example we have used LIBSVM 3.20. The first step is to compile LIBSVM. To do this extract the file libsvm-3.20.tar.gz and go into the directory `libsvm-2.30/matlab`. Start Octave and in Octave execute the command `make`. This compiles the interface of LIBSVM. Now, when everything compiled successfully and you type ``svmtrain()``` you should see the following output:
+To use support vector machines you have to install [LIBSVM](http://www.csie.ntu.edu.tw/~cjlin/libsvm/). LIBSVM provides an interface for MATLAB and Octave. For this example we have used LIBSVM 3.20. The first step is to compile LIBSVM. To do this extract the file libsvm-3.20.tar.gz and go into the directory `libsvm-2.30/matlab`. Start Octave and in Octave execute the command `make`. This compiles the interface of LIBSVM. Now, when everything compiled successfully and you type ``svmtrain()``` you should see the following output:
 
 ```
 Usage: model = svmtrain(training_label_vector, training_instance_matrix, 'libsvm_options');
@@ -196,7 +201,7 @@ The helper function svmTrain ...
 
 ```matlab
 % seed the random number generator to get reproducible results
-rand("seed", 101);
+rand('seed', 101);
 X = rand(200, 2);       % create a random data set
 y = X(:, 1) < X(:, 2);  % create the class labels
 M = svmTrain(X, y);     % training of a SVM
