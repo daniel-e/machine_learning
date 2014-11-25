@@ -25,6 +25,14 @@ This directory contains functions useful for doing machine learning in Octave.
 
 * `visualizeInstances.m`: Visualize 2-dimenstional instances belonging to at most two classes.
 
+*Support Vector Machines*
+
+To use a support vector machine as a classifier you have to install [LIBSVM](http://www.csie.ntu.edu.tw/~cjlin/libsvm/). 
+
+* `svmTrain.m`: Training of a SVM.
+* `svmPredict.m`: Predict instances with an SVM.
+* `svmDecisionBoundary.m`: Get the decision boundary from an SVM model.
+
 ## Examples
 
 ### Linear regression
@@ -137,3 +145,68 @@ visualizeInstances(X, y);
 The result is a plot like the following one:
 
 ![plot of instances belonging to two classes](https://github.com/daniel-e/machine_learning/blob/plots/tools/octave/visualize_instances.png)
+
+### SVM
+
+#### Installing SVM
+
+To use support vector machines you have to install LIBSVM. LIBSVM provides an interface for MATLAB and Octave. For this example we have used LIBSVM 3.20. The first step is to compile LIBSVM. To do this extract the file libsvm-3.20.tar.gz and go into the directory `libsvm-2.30/matlab`. Start Octave and in Octave execute the command `make`. This compiles the interface of LIBSVM. Now, when everything compiled successfully and you type ``svmtrain()``` you should see the following output:
+
+```
+Usage: model = svmtrain(training_label_vector, training_instance_matrix, 'libsvm_options');
+libsvm_options:
+-s svm_type : set type of SVM (default 0)
+	0 -- C-SVC		(multi-class classification)
+	1 -- nu-SVC		(multi-class classification)
+	2 -- one-class SVM
+	3 -- epsilon-SVR	(regression)
+	4 -- nu-SVR		(regression)
+-t kernel_type : set type of kernel function (default 2)
+	0 -- linear: u'*v
+	1 -- polynomial: (gamma*u'*v + coef0)^degree
+	2 -- radial basis function: exp(-gamma*|u-v|^2)
+	3 -- sigmoid: tanh(gamma*u'*v + coef0)
+	4 -- precomputed kernel (kernel values in training_instance_matrix)
+-d degree : set degree in kernel function (default 3)
+-g gamma : set gamma in kernel function (default 1/num_features)
+-r coef0 : set coef0 in kernel function (default 0)
+-c cost : set the parameter C of C-SVC, epsilon-SVR, and nu-SVR (default 1)
+-n nu : set the parameter nu of nu-SVC, one-class SVM, and nu-SVR (default 0.5)
+-p epsilon : set the epsilon in loss function of epsilon-SVR (default 0.1)
+-m cachesize : set cache memory size in MB (default 100)
+-e epsilon : set tolerance of termination criterion (default 0.001)
+-h shrinking : whether to use the shrinking heuristics, 0 or 1 (default 1)
+-b probability_estimates : whether to train a SVC or SVR model for probability estimates, 0 or 1 (default 0)
+-wi weight : set the parameter C of class i to weight*C, for C-SVC (default 1)
+-v n : n-fold cross validation mode
+-q : quiet mode (no outputs)
+```
+
+#### Two-class SVM
+
+The helper function svmTrain ...
+
+```matlab
+% seed the random number generator to get reproducible results
+rand("seed", 101);
+X = rand(200, 2);       % create a random data set
+y = X(:, 1) < X(:, 2);  % create the class labels
+M = svmTrain(X, y);     % training of a SVM
+
+% create another data set for classification
+P = rand(20, 2); 
+% predict the class labels for this data set
+r = svmPredict(P, M);
+
+% visualize the predicted classes
+r = r + 2;
+visualizeInstances([X; P], [y; r]);
+
+% plot the decision boundary
+[w, b] = svmDecisionBoundary(M);
+% b + w(1) + w(2) = 0 is the decision boundary
+% y = x(2) = = (-b - w(1) * x(1)) / w(2)
+axis([0 1 0 1]);
+plot([0 1], [-b / w(2), (-b - w(1)) / w(2)]);
+```
+
