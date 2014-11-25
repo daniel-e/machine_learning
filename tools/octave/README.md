@@ -5,40 +5,45 @@ This directory contains functions useful for doing machine learning in Octave.
 **Table of Contents**
 
 - [Overview of functions](#overview-of-functions)
+  - [General](#general)
+  - [Features](#features)
+  - [Linear regression](#linear-regression)
+  - [Visualization](#visualization)
+  - [Support Vector Machines](#support-vector-machines)
 - [Examples](#examples)
-  - [Linear regression](#linear-gregression)
+  - [Linear regression](#linear-regression)
     - [Normal equation without regularization](#normal-equation-without-regularization)
     - [Increase number of features](#increase-number-of-features)
     - [Gradient descent vs normal equation](#gradient-descent-vs-normal-equation)
     - [Visualization](#visualization)
   - [SVM](#svm)
-    - [Installing LIBSVM](#intalling-libsvm)
+    - [Installing LIBSVM](#installing-libsvm)
     - [Two-class SVM](#two-class-svm)
 
 ## Overview of functions
 
-**General**
+### General
 
 * `sigmoid.m`: Computes the sigmoid function.
 
-**Features**
+### Features
 
 * `normalizeFeatures.m`: Normalizes the features of a matrix.
 * `combineFeatures.m`: Computes new features by combining existing features.
 * `boostFeatures.m`: Computes new features by raising existing features to dfferent powers.
 * `tfidf.m`: Computes the term frequency-inverse document frequency of a document-term matrix.
 
-**Linear Regression**
+### Linear Regression
 
 * `lrComputeCost.m`: Cost function for linear regression without regularization.
 * `lrNormalEquation.m`: Computes the exact solution to a linear regression problem without regularization.
 * `lrGradientDescent.m`: Minimizes a linear regression problem with Gradient descent.
 
-**Visualization**
+### Visualization
 
 * `visualizeInstances.m`: Visualize 2-dimenstional instances belonging to at most two classes.
 
-**Support Vector Machines**
+### Support Vector Machines
 
 *To use a support vector machine as a classifier you have to install [LIBSVM](http://www.csie.ntu.edu.tw/~cjlin/libsvm/). *
 
