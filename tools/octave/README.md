@@ -45,7 +45,7 @@ This directory contains functions useful for doing machine learning in Octave.
 
 ### Support Vector Machines
 
-*To use a support vector machine as a classifier you have to install [LIBSVM](http://www.csie.ntu.edu.tw/~cjlin/libsvm/). *
+To use a support vector machine as a classifier you have to install [LIBSVM](http://www.csie.ntu.edu.tw/~cjlin/libsvm/).
 
 * `svmTrain.m`: Training of a SVM.
 * `svmPredict.m`: Predict instances with an SVM.
@@ -168,7 +168,7 @@ The result is a plot like the following one:
 
 #### Installing LIBSVM
 
-To use support vector machines you have to install [LIBSVM](http://www.csie.ntu.edu.tw/~cjlin/libsvm/). LIBSVM provides an interface for MATLAB and Octave. For this example we have used LIBSVM 3.20. The first step is to compile LIBSVM. To do this extract the file libsvm-3.20.tar.gz and go into the directory `libsvm-2.30/matlab`. Start Octave and in Octave execute the command `make`. This compiles the interface of LIBSVM. Now, when everything compiled successfully and you type ``svmtrain()``` you should see the following output:
+To use support vector machines you have to install [LIBSVM](http://www.csie.ntu.edu.tw/~cjlin/libsvm/). LIBSVM provides an interface for MATLAB and Octave. For this example we have used LIBSVM 3.20. The first step is to compile LIBSVM. To do this extract the file libsvm-3.20.tar.gz and go into the directory `libsvm-2.30/matlab`. Start Octave and in Octave execute the command `make`. This compiles the interface of LIBSVM. Now, when everything compiled successfully and you type ``svmtrain()``` you should see the following output which we have reduced to the first few lines of output:
 
 ```
 Usage: model = svmtrain(training_label_vector, training_instance_matrix, 'libsvm_options');
@@ -186,18 +186,7 @@ libsvm_options:
 	3 -- sigmoid: tanh(gamma*u'*v + coef0)
 	4 -- precomputed kernel (kernel values in training_instance_matrix)
 -d degree : set degree in kernel function (default 3)
--g gamma : set gamma in kernel function (default 1/num_features)
--r coef0 : set coef0 in kernel function (default 0)
--c cost : set the parameter C of C-SVC, epsilon-SVR, and nu-SVR (default 1)
--n nu : set the parameter nu of nu-SVC, one-class SVM, and nu-SVR (default 0.5)
--p epsilon : set the epsilon in loss function of epsilon-SVR (default 0.1)
--m cachesize : set cache memory size in MB (default 100)
--e epsilon : set tolerance of termination criterion (default 0.001)
--h shrinking : whether to use the shrinking heuristics, 0 or 1 (default 1)
--b probability_estimates : whether to train a SVC or SVR model for probability estimates, 0 or 1 (default 0)
--wi weight : set the parameter C of class i to weight*C, for C-SVC (default 1)
--v n : n-fold cross validation mode
--q : quiet mode (no outputs)
+[...]
 ```
 
 #### Two-class SVM
