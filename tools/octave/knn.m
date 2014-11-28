@@ -14,14 +14,19 @@
 %        i.e. the distannce between p and X(idx,:).
 %
 %  idx   The row number of the nearest neighbour in X.
-function [distance, idx] = nearestNeighbour(X, p)
-	[d, idx] = min(sumsq(bsxfun(@minus, X, p'), 2));
-	distance = sqrt(d);
+function [label, idx] = knn(X, y, p, k)
+	[sorted, pos] = sort(sumsq(bsxfun(@minus, X, p'), 2));
+	idx = pos(1:k);
+	labels = y(idx);
+	u = unique(labels);
+	[mval, i] = max(histc(labels, unique(labels)));
+	label = u(i);
 end
 
 %!test
-%! X = [6 5 3; 3 2 0; 6 8 7; 2 0 7; 2 1 2];
-%! p = [4 3 2];
-%! [distance, idx] = nearestNeighbour(X, p');
-%! assert (distance, 2.4495, .0001);
-%! assert (idx, 2);
+%! X = [7 4 8; 9 3 3; 8 9 4; 0 3 7; 7 9 3; 3 6 2; 9 1 5; 5 3 3];
+%! p = [4 3 2]';
+%! y = [1 0 1 0 1 0 1 1]';
+%! [label, indexes] = knn(X, y, p, 3);
+%! assert (label, 0)
+%! assert (indexes, [8 6 2]');
