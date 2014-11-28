@@ -51,6 +51,13 @@ To use a support vector machine as a classifier you have to install [LIBSVM](htt
 * `svmPredict.m`: Predict instances with an SVM.
 * `svmDecisionBoundary.m`: Get the decision boundary from an SVM model.
 
+### Nearest Neighbours
+
+(TODO)
+
+* `nearestNeighbour.m`: Find the nearest neighbour for a pattern.
+* `knn.m`: Find the k nearest neighbours.
+
 ## Examples
 
 ### Linear regression
