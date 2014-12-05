@@ -10,6 +10,8 @@ This directory contains functions useful for doing machine learning in Octave.
   - [Linear regression](#linear-regression)
   - [Visualization](#visualization)
   - [Support Vector Machines](#support-vector-machines)
+  - [Nearest Neighbours](#nearest-neighbours)
+  - [Information Theory](#information-theory)
 - [Examples](#examples)
   - [Linear regression](#linear-regression-1)
     - [Normal equation without regularization](#normal-equation-without-regularization)
@@ -57,6 +59,12 @@ To use a support vector machine as a classifier you have to install [LIBSVM](htt
 
 * `nearestNeighbour.m`: Find the nearest neighbour for a pattern.
 * `knn.m`: Find the k nearest neighbours.
+
+### Information Theory
+
+(TODO)
+
+* `entropy.m`: Computes the enropy of a vector.
 
 ## Examples
 
