@@ -27,6 +27,8 @@ This directory contains functions useful for doing machine learning in Octave.
 ### General
 
 * `sigmoid.m`: Computes the sigmoid function.
+* `mse.m`: Computes the mean square error.
+* `mseGrad.m`: Computes the gradient for the mean square error.
 
 ### Features
 
@@ -37,9 +39,10 @@ This directory contains functions useful for doing machine learning in Octave.
 
 ### Linear Regression
 
-* `lrComputeCost.m`: Cost function for linear regression without regularization.
+* `lrHypothesis.m`: Computes the hypothesis.
 * `lrNormalEquation.m`: Computes the exact solution to a linear regression problem without regularization.
 * `lrGradientDescent.m`: Minimizes a linear regression problem with Gradient descent.
+* `linearRegression.m`: Solves a linear regression problem.
 
 ### Visualization
 
@@ -94,7 +97,7 @@ p = X * theta;
 plot(x, y, 'x', x, p, 'r', 'linewidth', 2);
 
 % the cost of the solution can be computed as follows:
-lrComputeCost(X, y, theta)
+mse(hypLinReg(X, theta), y);
 ```
 
 ![plot of linear regression using normal equation](https://github.com/daniel-e/machine_learning/blob/plots/tools/octave/linear_regresssion_normal_equation.png)
