@@ -47,6 +47,7 @@ This directory contains functions useful for doing machine learning in Octave.
 ### Visualization
 
 * `visualizeInstances.m`: Visualize 2-dimenstional instances belonging to at most two classes.
+* `plotData.m`: 
 
 ### Support Vector Machines
 
