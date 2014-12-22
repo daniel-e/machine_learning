@@ -42,4 +42,4 @@ To display the image at row 8 of the training set you can use the following comm
 
 This will display the following image:
 
-[example digit of MNIST dataset](example_digit.png)
+![example digit of MNIST dataset](example_digit.png)
