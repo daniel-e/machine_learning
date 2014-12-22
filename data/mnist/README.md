@@ -48,7 +48,7 @@ This will display the following image:
 
 The Octave function `plotDigits.m` can be used to display a set of digits
 
-`plotDigts(X, 10, 10)` shows 100 digits in 10 rows and 10 columns.
+`plotDigits(X, 10, 10)` shows 100 digits in 10 rows and 10 columns.
 
 ![100 digits from the mnist database](example_10x10.png)
 
