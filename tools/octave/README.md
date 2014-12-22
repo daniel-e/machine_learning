@@ -6,6 +6,7 @@ This directory contains functions useful for doing machine learning in Octave.
 
 - [Overview of functions](#overview-of-functions)
   - [General](#general)
+  - [Tools for classification](#tools-for-classification)
   - [Features](#features)
   - [Linear regression](#linear-regression)
   - [Visualization](#visualization)
@@ -13,6 +14,7 @@ This directory contains functions useful for doing machine learning in Octave.
   - [Nearest Neighbours](#nearest-neighbours)
   - [Information Theory](#information-theory)
 - [Examples](#examples)
+  - [Nearest Neighbours](#nearest-neighbours-1)
   - [Linear regression](#linear-regression-1)
     - [Normal equation without regularization](#normal-equation-without-regularization)
     - [Increase number of features](#increase-number-of-features)
@@ -29,6 +31,10 @@ This directory contains functions useful for doing machine learning in Octave.
 * `sigmoid.m`: Computes the sigmoid function.
 * `mse.m`: Computes the mean square error.
 * `mseGrad.m`: Computes the gradient for the mean square error.
+
+### Tools for classification
+
+* `testClassifier.m`: Test a classifier
 
 ### Features
 
@@ -71,6 +77,11 @@ To use a support vector machine as a classifier you have to install [LIBSVM](htt
 * `entropy.m`: Computes the enropy of a vector.
 
 ## Examples
+
+### Nearest Neighbours
+
+TODO: example_knn.m
+
 
 ### Linear regression
 
