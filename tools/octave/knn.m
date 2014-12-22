@@ -19,7 +19,7 @@ function [label, idx] = knn(X, y, p, k)
 	idx = pos(1:k);
 	labels = y(idx);
 	u = unique(labels);
-	[mval, i] = max(histc(labels, unique(labels)));
+	[mval, i] = max(histc(labels, u));
 	label = u(i);
 end
 
