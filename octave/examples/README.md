@@ -15,5 +15,17 @@ Here the function `testClassifier` is used to classify all examples in the matri
 
 ## Linear regression
 
+The file [ex_linear_regression.m](ex_linear_regression.m) contains an example how to do linear regression. The core of the script is the following line:
+
+`[theta, fval, cost_history] = linearRegression(X, y)`
+
+It returns:
+
+* `theta`: the learned parameters
+* `fval`: cost of the objective function for theta
+* `cost_history`: the value of the objective function after each iteration
+
+When a solution was found the script plots the result together with the error on the training set after each iteration.
+
 ![linear regression](ex_linear_regression.png)
 
