@@ -1,5 +1,6 @@
 # Create synthetic data
 
+
 ```matlab
 X = createData1(50);
 plotData(X);
