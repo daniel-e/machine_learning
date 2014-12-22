@@ -3,7 +3,7 @@
 **Table of Contents**
 
 - [Recognize handwritten digits with k-nearest neighbour](#recognize-handwritten-digits-with-k-nearest-heighbour)
-
+- [Linear regression](#linear-regression)
 
 ## Recognize handwritten digits with k-nearest neighbour
 
@@ -13,4 +13,7 @@ In the file [ex_knn.m](ex_knn.m) you can find an example how to use a k-nearest 
 
 Here the function `testClassifier` is used to classify all examples in the matrix `X` with the known target values `y`. The training examples are stored in the matrix `trainingX` and the labels for each training example are stored in the column vector `trainingY`. For each example in the test set the function `testClassifier` calls the function `knn` with the current example (`p`) as the only argument. The parameter `k` is the number of the nearest neighbours in `trainingX` which are used to predict the label of `p`.
 
+## Linear regression
+
+![linear regression](ex_linear_regression.png)
 
