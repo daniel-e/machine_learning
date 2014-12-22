@@ -29,3 +29,9 @@ When a solution was found the script plots the result together with the error on
 
 ![linear regression](ex_linear_regression.png)
 
+### Wines
+
+[ex_linear_regression_wine.m](ex_linear_regression_wine.m)
+
+![linear regression wines](ex_linear_regression_wine.png)
+
