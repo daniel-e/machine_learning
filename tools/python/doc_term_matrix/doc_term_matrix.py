@@ -2,7 +2,6 @@ import sys
 
 import numpy as np
 import scipy.io
-from array import array
 
 def doc_term_matrix(filename):
 	mapping = {}
