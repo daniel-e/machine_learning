@@ -4,7 +4,7 @@ addpath('..');
 addpath('../../data/wine');
 
 % ---------- load the dataset ----------
-[X, y] = readWineData('../../data/wine/winequality-red.csv');
+[X, y] = loadWineData('../../data/wine/winequality-red.csv');
 
 % find the solution
 [theta, fval, cost_history] = linearRegression(X, y);
