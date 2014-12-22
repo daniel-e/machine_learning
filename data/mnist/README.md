@@ -43,3 +43,12 @@ To display the image at row 8 of the training set you can use the following comm
 This will display the following image:
 
 ![example digit of MNIST dataset](example_digit.png)
+
+## Plotting a set of digits
+
+The Octave function `plotDigits.m` can be used to display a set of digits
+
+`plotDigts(X, 10, 10)` shows 100 digits in 10 rows and 10 columns.
+
+![100 digits from the mnist database](example_10x10.png)
+
