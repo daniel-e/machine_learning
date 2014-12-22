@@ -14,7 +14,6 @@ This directory contains functions useful for doing machine learning in Octave.
   - [Nearest Neighbours](#nearest-neighbours)
   - [Information Theory](#information-theory)
 - [Examples](#examples)
-  - [Nearest Neighbours](#nearest-neighbours-1)
   - [Linear regression](#linear-regression-1)
     - [Normal equation without regularization](#normal-equation-without-regularization)
     - [Increase number of features](#increase-number-of-features)
@@ -77,14 +76,6 @@ To use a support vector machine as a classifier you have to install [LIBSVM](htt
 * `entropy.m`: Computes the enropy of a vector.
 
 ## Examples
-
-### Nearest Neighbours
-
-In the file [example_knn.m](example_knn.m) you can find an example how to use a k-nearest neighbour classifier to classify handwritten digits of the MNIST dataset. The core of the script is the following line:
-
-`[accuracy, predictions] = testClassifier(@(p) knn(trainingX, trainingY, p, k), X, y);`
-
-Here the function `testClassifier` is used to classify all examples in the matrix `X` with the known target values `y`. The training examples are stored in the matrix `trainingX` and the labels for each training example are stored in the column vector `trainingY`. For each example in the test set the function `testClassifier` calls the function `knn` with the current example (`p`) as the only argument. The parameter `k` is the number of the nearest neighbours in `trainingX` which are used to predict the label of `p`.
 
 ### Linear regression
 

@@ -3,6 +3,8 @@
 % This example shows how to classify handwritten digits with a simple
 % kNN classifier.
  
+addpath("..")
+
 more off;
 disp("Loading MNIST dataset ...");
 load('../../data/mnist/mnist.mat');
