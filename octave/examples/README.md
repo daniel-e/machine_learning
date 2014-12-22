@@ -1,10 +1,9 @@
+# Examples
+
 **Table of Contents**
 
-- [Examples](#examples)
-  - [Recognize handwritten digits with k-nearest neighbour](#recognize-handwritten-digits-with-k-nearest-heighbour)
+- [Recognize handwritten digits with k-nearest neighbour](#recognize-handwritten-digits-with-k-nearest-heighbour)
 
-
-# Examples
 
 ## Recognize handwritten digits with k-nearest neighbour
 
