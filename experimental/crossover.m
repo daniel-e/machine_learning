@@ -1,12 +1,14 @@
-function c = crossover(a, b)
+function [c1, c2] = crossover(a, b)
 	i = randi(size(a, 2) + 1);
 	j = randi(size(b, 2) + 1);
 	l = min([i, j]);
 	r = max([i, j]);
 	if r > l
-		c = [newchild(a, b, l, r); newchild(b, a, l, r)];
+		c1 = newchild(a, b, l, r);
+		c2 = newchild(b, a, l, r);
 	else
-		c = [a; b];
+		c1 = a;
+		c2 = b;
 	end
 	
 end

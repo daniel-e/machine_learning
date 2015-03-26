@@ -9,10 +9,20 @@
 % RETURNES
 %
 %  f    Row vector.
-function f = fitnessOfAll(fitnessFunction, P)
-	f = [];
-	for i = 1:size(P, 1)
-		f = [f; fitnessFunction(P(i, :))];
-	end
+function [f, m] = fitnessOfAll(fitnessFunction, P)
+
+	% size of population
+	n = size(P, 1);
+
+	% compute the fitness for each individual
+	f = arrayfun(@(i) fitnessFunction(P(i, :)), 1:n)';
+	m = mean(f);
+
+	% normalize the fitness so that the sum is equal to one
+	% and append a column which represents the row index in the population
+	f = [f / sum(f) (1:n)'];
+
+	% sort by fitness, descending
+	f = flipud(sortrows(f, 1));
 end
 
