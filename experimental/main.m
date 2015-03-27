@@ -1,13 +1,14 @@
 1;
 
-npop = 100;    % size of initial population
-niters = 100;  % number of generations / iterations
+more off;
+rand('seed', 123);  % seed prng to get reproducible results
+
+npop = 100;         % size of initial population
+niters = 100;       % number of generations / iterations
+n = 10;             % number of cities
 mutationRate = 0.001;
 
-more off;
-load points;
-X = [x y];
-n = size(X, 1);                 % number of cities
+X = createCities(n);
 P = createPopulation(npop, n);  % initial population
 J = zeros(niters, 1);
 
@@ -22,22 +23,18 @@ for iter = 1:niters
 
 	Pn = [];
 	for i = 1:npop / 2
-		a = P(select(s), :);
-		b = P(select(s), :);
-
-		if rand(1, 1) >= 0.6
-			[a, b] = crossover(a, b);
-		end
-		Pn = [Pn; a; b];
+		Pn = [Pn; createOffsprings(P(select(s), :), P(select(s), :))];
 	end
-
 	P = mutatePopulation(Pn, mutationRate);
 end
 
+% plot:
+% 1) the result, i.e. the path of the best solution in the last generation
 subplot(1, 2, 1);
-best = X(P(s(1,2), :), :);
+best = X(P(s(1, 2), :), :);
 best = [best; best(1, :)];
-plot(best(:, 1), best(:, 2), "linewidth", 2);
+plot(best(:, 1), best(:, 2), 'linewidth', 2);
 
+% 2) the average fitness vs generation
 subplot(1, 2, 2);
-plot(1:length(J), J, "linewidth", 2);
+plot(J, 'linewidth', 2);
