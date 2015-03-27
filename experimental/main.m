@@ -13,7 +13,7 @@ mutationRate = 0.001;
 
 X = createCities(n);
 P = createPopulation(npop, n);  % initial population
-J = zeros(niters, 1);
+J = zeros(niters, 1);           % history of average fitness
 
 for iter = 1:niters
 	iter
